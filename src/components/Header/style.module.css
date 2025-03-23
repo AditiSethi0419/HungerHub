@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 50px;
+}
+.navItems {
+  margin: 0;
+}
+.navItems > ul {
+  margin: 0;
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+}
