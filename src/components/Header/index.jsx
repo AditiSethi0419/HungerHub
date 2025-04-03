@@ -20,7 +20,7 @@ const [authBth , setAuthBtn] = useState("Login");
                   setAuthBtn("Logout") :
                   setAuthBtn("Login")
                 }}>{authBth}</button>
-            </ul>
+            </ul> 
         </div>
     </div>
  

@@ -2,6 +2,7 @@ import React, { useState , useEffect } from "react";
 import RestaurantCard from "../../components/RestaurantCard";
 import styles from "./style.module.css";
 import Shimmer  from "../../components/Shimmer";
+import Search from "../../components/Search";
 
 const Home = () => {
   const [listOfRestaurants , setListOfRestaurants] = useState([]);
@@ -19,7 +20,7 @@ const fetchData = async () => {
   
   const jsonData = await data.json();
 
-  console.log(jsonData);
+  //console.log(jsonData);
 
   //Optional Chaining
   setListOfRestaurants(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -30,6 +31,7 @@ return listOfRestaurants.length === 0 ? (
 ) : (
     <div className="cards-wrap">
       <div className="filter">
+        <Search />
         <button className="filter-btn" onClick={()=>{
         const filteredList = listOfRestaurants.filter(
           (res) => res.info.avgRating > 4
