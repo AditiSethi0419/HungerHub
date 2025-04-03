@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
     <div className={styles['res-card']}>
       <div className={styles["image-container"]}>
         <img className={styles["item-img"]} src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/' + info?.cloudinaryImageId} />
-        <p className={styles["item-price"]}> ITEMS {info?.aggregatedDiscountInfoV3.subHeader} </p>
+        <p className={styles["item-price"]}> ITEMS {info?.costForTwo} </p>
       </div>
       <div className={styles["hotel-info"]}>
         <p className={styles["hotel-name"]}>{info?.name}</p>

@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from "./style.module.css";
+import { useState } from 'react';
 
 const Header = () => {
+const [authBth , setAuthBtn] = useState("Login");
   return (
     <div className={styles["header"]}>
         <div className={styles["logo-container"]}>
@@ -13,6 +15,11 @@ const Header = () => {
                 <li>About Us</li>
                 <li>Contact Us</li>
                 <li>Cart</li>
+                <button className='authBtn' onClick={()=>{
+                  authBth === "Login" ? 
+                  setAuthBtn("Logout") :
+                  setAuthBtn("Login")
+                }}>{authBth}</button>
             </ul>
         </div>
     </div>
