@@ -24,4 +24,20 @@ const RestaurantCard = (props) => {
   )
 }
 
-export default RestaurantCard
+
+//Higher order component : input is the Restraurant card , output will be enhanced version of restraurant card.
+
+// eslint-disable-next-line no-unused-vars, react-refresh/only-export-components
+export const withPromotedLabel = (RestaurantCard) => {
+  return(props) => {
+    return (
+      <div>
+        <label>Promoted</label>
+        <RestaurantCard {...props} />
+      </div>
+    )
+  }
+
+}
+
+export default RestaurantCard;

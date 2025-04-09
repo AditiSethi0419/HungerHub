@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from "react";
-import RestaurantCard from "../../components/RestaurantCard";
+import RestaurantCard,{withPromotedLabel} from "../../components/RestaurantCard";
 import styles from "./style.module.css";
 import Shimmer  from "../../components/Shimmer";
 import Search from "../../components/Search";
@@ -9,6 +9,8 @@ const Home = () => {
   const [listOfRestaurants , setListOfRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]); // Keep original list
   const [searchText , setSearchText] = useState("");
+
+  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
   // useEfffect takes 2 arguments , a callbackfunction and a dependency array
   useEffect(() => {
@@ -62,7 +64,11 @@ return listOfRestaurants.length === 0 ? (
       </div>
         <div className={styles["top-res-sec"]}>
       {listOfRestaurants.map((restaurant) => (
-       <Link to={"restaurants/"+restaurant?.info?.id} key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+       <Link to={"restaurants/"+restaurant?.info?.id} key={restaurant.info.id}>
+       {
+        restaurant.info.promoted ? (<PromotedRestaurantCard resData={restaurant} />) :   (<RestaurantCard resData={restaurant} />)
+       }
+     </Link>
       ))}
       </div>
     </div>
