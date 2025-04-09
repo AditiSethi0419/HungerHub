@@ -66,7 +66,7 @@ return listOfRestaurants.length === 0 ? (
       {listOfRestaurants.map((restaurant) => (
        <Link to={"restaurants/"+restaurant?.info?.id} key={restaurant.info.id}>
        {
-        restaurant.info.promoted ? (<PromotedRestaurantCard resData={restaurant} />) :   (<RestaurantCard resData={restaurant} />)
+        restaurant.info.avgRating > 4.5 ? (<PromotedRestaurantCard resData={restaurant} />) :   (<RestaurantCard resData={restaurant} />)
        }
      </Link>
       ))}
