@@ -62,11 +62,7 @@ return listOfRestaurants.length === 0 ? (
       </div>
         <div className={styles["top-res-sec"]}>
       {listOfRestaurants.map((restaurant) => (
-      <>
-      {/* {console.log(restaurant?.info?.id)} */}
-       <Link to={`restaurants/${restaurant?.info?.id}`}><RestaurantCard resData={restaurant} key={restaurant.info.id}/></Link>
-       </>  
-    
+       <Link to={"restaurants/"+restaurant?.info?.id} key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
       ))}
       </div>
     </div>
