@@ -7,8 +7,9 @@ import Home from './pages/Home';
 import React , {lazy , Suspense} from 'react';
 import ReactDOM from "react-dom/client"; 
 import Error from './components/Error';
-import RestaurantCard from './components/RestaurantCard';
+// import RestaurantCard from './components/RestaurantCard';
 import RestaurantMenu from './pages/RestaurantMenu';
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -57,6 +58,11 @@ const appRouter = createBrowserRouter([
       {
         path:"/restaurants/:resId",
         element:<RestaurantMenu />,
+        errorElement:<Error/>
+      },
+      {
+        path:"/cart",
+        element:<Cart />,
         errorElement:<Error/>
       }
     ],

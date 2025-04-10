@@ -2,9 +2,16 @@ import React from "react";
 import styles from "./style.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 const Header = () => {
   const [authBth, setAuthBtn] = useState("Login");
+
+
+  //Subscribing to store using a selector
+  const cartItems = useSelector((store) => store.cart.items)
+  console.log(cartItems);
   return (
     <div className={styles["header"]}>
       <div className={styles["logo-container"]}>
@@ -24,9 +31,11 @@ const Header = () => {
           <li>
             <Link to="/contactus">Contact Us</Link>
           </li>
-          <li>Cart</li>
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
+          </li>
+          <li >
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
           </li>
           <button
             className="authBtn"
